@@ -1,0 +1,46 @@
+Description: "Esercizio del 21 Luglio 2023, Workshop CloudFormation Pizzuto"
+
+Resources:
+  VPCDevOps:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.0.0.0/16
+      EnableDnsHostnames: True
+      EnableDnsSupport: True
+      Tags:
+        - Key: Nome
+          Value: "Salvatore"
+        - Key: Cognome
+          Value: "Pizzuto"
+        - Key: Environment
+          Value: DevOpsAcademy
+
+  PublicSubnet1:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPCDevOps
+      CidrBlock: 10.0.1.0/24
+      MapPublicIpOnLaunch: True
+      AvailabilityZone: eu-west-1a
+      Tags:
+        - Key: Nome
+          Value: "Salvatore"
+        - Key: Cognome
+          Value: "Pizzuto"
+        - Key: Environment
+          Value: DevOpsAcademy
+
+  PublicSubnet2:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPCDevOps
+      CidrBlock: 10.0.3.0/24
+      MapPublicIpOnLaunch: True
+      AvailabilityZone: eu-west-1b
+      Tags:
+        - Key: Nome
+          Value: "Salvatore"
+        - Key: Cognome
+          Value: "Pizzuto"
+        - Key: Environment
+          Value: DevOpsAcademy
